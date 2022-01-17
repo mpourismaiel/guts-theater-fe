@@ -1,0 +1,15 @@
+.header {
+  @apply w-full shadow shadow-gray-800/50 bg-gray-800;
+}
+
+.wrapper {
+  @apply py-4 flex justify-between items-center;
+}
+
+.logo {
+  @apply font-bold text-white;
+}
+
+.links {
+  @apply flex space-x-2;
+}

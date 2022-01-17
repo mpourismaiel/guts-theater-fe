@@ -1,0 +1,15 @@
+.field {
+  @apply flex items-center space-x-5;
+}
+
+.field label {
+  @apply min-w-[100px] font-semibold text-sm;
+}
+
+.field input {
+  @apply bg-white border border-gray-200 shadow shadow-gray-400/50 rounded px-2 h-9;
+}
+
+.field input:disabled {
+  @apply bg-gray-200;
+}

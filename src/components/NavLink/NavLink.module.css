@@ -1,0 +1,11 @@
+.link {
+  @apply py-2 px-4 rounded bg-transparent transition-colors duration-200 text-white;
+}
+
+.link:hover {
+  @apply bg-gray-700;
+}
+
+.link.active {
+  @apply text-cyan-400;
+}

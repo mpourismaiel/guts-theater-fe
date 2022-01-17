@@ -1,0 +1,43 @@
+.container {
+  @apply flex flex-col space-y-4;
+}
+
+.details {
+  @apply flex justify-between mb-4;
+}
+
+.detail {
+  @apply flex space-x-2;
+}
+
+.detail .label {
+  @apply text-sm font-bold text-gray-700;
+}
+
+.detail .value {
+  @apply text-sm text-gray-700;
+}
+
+.error {
+  @apply mb-4 p-2 rounded border border-red-700 bg-red-200 text-red-900 text-sm;
+}
+
+.actions {
+  @apply flex justify-end space-x-4;
+}
+
+.button {
+  @apply rounded shadow text-sm font-semibold px-4 py-2 text-white;
+}
+
+.button.delete {
+  @apply bg-red-500 shadow-red-500/50;
+}
+
+.button.close {
+  @apply bg-gray-500 shadow-gray-500/50;
+}
+
+.button.submit {
+  @apply bg-blue-700 shadow-blue-700/50;
+}

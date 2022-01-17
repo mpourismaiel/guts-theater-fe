@@ -1,0 +1,12 @@
+.backdrop {
+  @apply bg-gray-900 bg-opacity-30 fixed top-0 left-0 w-screen h-screen overflow-auto;
+  @apply flex justify-center items-center;
+}
+
+.container {
+  @apply shadow-2xl shadow-gray-700/50 rounded-lg p-5 w-[400px] bg-white;
+}
+
+.title {
+  @apply text-lg font-bold text-gray-900 mb-4;
+}

@@ -1,0 +1,96 @@
+.container {
+}
+
+.section {
+  @apply flex flex-col space-y-2 mb-8 justify-start;
+}
+
+.sectionTitleContainer {
+  @apply flex mb-2 justify-center items-center space-x-2;
+}
+
+.sectionTitle {
+  @apply text-center text-sm text-gray-800 font-semibold;
+}
+
+.row,
+.seats {
+  @apply flex space-x-2;
+}
+
+.section.curved .row {
+  @apply justify-center;
+}
+
+.seats {
+  @apply px-2;
+}
+
+.noSeats {
+  @apply flex items-center text-xs text-gray-600;
+}
+
+.seat {
+  @apply rounded shadow shadow-gray-300/50 bg-gray-300;
+  @apply w-5 h-7 flex items-center justify-center;
+  @apply text-xs text-gray-700;
+}
+
+.seat.platRank {
+  @apply border-b-2 border-b-cyan-100 shadow shadow-cyan-100;
+}
+
+.seat.goldRank {
+  @apply border-b-2 border-b-yellow-400 shadow shadow-yellow-100;
+}
+
+.seat.silverRank {
+  @apply border-b-2 border-b-gray-200 shadow shadow-gray-200;
+}
+
+.seat.blocked {
+  @apply shadow-gray-200/50 bg-red-200;
+}
+
+.seat.aisle:first-child {
+  @apply border-l-2 border-l-gray-700;
+}
+
+.seat.aisle:not(:first-child) {
+  @apply border-r-2 border-r-gray-700;
+}
+
+.editSection,
+.editRow,
+.createSeat,
+.createRow,
+.createSection {
+  @apply rounded shadow shadow-gray-300/50 bg-gray-200;
+  @apply transition-colors duration-200 ease-out;
+  @apply h-7;
+  @apply text-xs text-gray-700;
+}
+
+.editSection:hover,
+.editRow:hover,
+.createSeat:hover,
+.createRow:hover,
+.createSection:hover {
+  @apply bg-gray-300;
+}
+
+.editSection {
+  @apply w-10;
+}
+
+.editRow {
+  @apply w-10;
+}
+
+.createSeat {
+  @apply w-10;
+}
+
+.createSection {
+  @apply w-full;
+}

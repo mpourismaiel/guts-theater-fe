@@ -1,0 +1,8 @@
+.title {
+  @apply text-lg font-bold px-20 pb-2 mt-4 mb-8;
+  @apply border-b-[20px] border-b-green-600;
+}
+
+.hall {
+  @apply flex flex-col items-center;
+}
