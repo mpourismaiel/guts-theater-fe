@@ -36,6 +36,10 @@
   @apply text-xs text-gray-700;
 }
 
+.seat.filled {
+  @apply bg-gray-700 text-white;
+}
+
 .seat.platRank {
   @apply border-b-2 border-b-cyan-100 shadow shadow-cyan-100;
 }
@@ -60,6 +64,7 @@
   @apply border-r-2 border-r-gray-700;
 }
 
+.ticketMode,
 .editSection,
 .editRow,
 .createSeat,
@@ -77,6 +82,20 @@
 .createRow:hover,
 .createSection:hover {
   @apply bg-gray-300;
+}
+
+.ticketMode {
+  @apply shadow-emerald-400/50 bg-emerald-600;
+  @apply text-sm text-white;
+  @apply h-8 w-full px-4 mt-4;
+}
+
+.ticketMode.active {
+  @apply bg-emerald-800;
+}
+
+.ticketMode:hover {
+  @apply bg-emerald-800;
 }
 
 .editSection {

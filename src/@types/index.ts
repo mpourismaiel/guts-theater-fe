@@ -17,12 +17,15 @@ export type GroupsApi = {
   count: number;
 }[];
 
+export type TicketListApi = Record<string, string[]>;
+
 export type TicketApi = {
   groupId: string;
   seats: string[];
 };
 
 export type SeatType = {
+  _id: string;
   aisle: boolean;
   broken: boolean;
   name: string;

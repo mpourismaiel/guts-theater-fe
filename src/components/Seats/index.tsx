@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { useCallback, useState } from "react";
 import useSWR from "swr";
 
-import type { SeatData, SeatsApi, SeatType } from "../../@types";
+import type { SeatData, SeatsApi, SeatType, TicketListApi } from "../../@types";
 import CreateRow from "../CreateRow";
 import CreateSeat from "../CreateSeat";
 import CreateSection from "../CreateSection";
@@ -29,13 +29,27 @@ type CreatingSectionInfo = {
 };
 
 const Seats = (): JSX.Element => {
+  const [ticketMode, setTicketMode] = useState(false);
   const [creatingSeat, setCreatingSeat] = useState<CreatingSeatInfo | null>(
     null
   );
   const [creatingRow, setCreatingRow] = useState<CreatingRowInfo | null>(null);
   const [creatingSection, setCreatingSection] =
     useState<CreatingSectionInfo | null>(null);
+  const {
+    data: filledSeats,
+    error: filledSeatsError,
+    mutate: filledSeatsMutate,
+  } = useSWR<TicketListApi>("/ticket");
   const { data, error, mutate } = useSWR<SeatsApi>("/seats");
+
+  const toggleTicketMode = useCallback(() => {
+    if (!ticketMode) {
+      filledSeatsMutate({});
+    }
+
+    setTicketMode(!ticketMode);
+  }, [setTicketMode, ticketMode, filledSeatsMutate]);
 
   const handleCreatedRow = useCallback(
     (submitted: boolean) => {
@@ -119,7 +133,7 @@ const Seats = (): JSX.Element => {
     [setCreatingSeat]
   );
 
-  if (error) {
+  if (error || filledSeatsError) {
     return <h2>Could not load data</h2>;
   }
 
@@ -140,25 +154,29 @@ const Seats = (): JSX.Element => {
             <h4 className={styles.sectionTitle}>
               {`${section.name} (Elevation: ${section.elevation})`}
             </h4>
-            <button
-              className={styles.editSection}
-              onClick={handleUpdateSection(
-                section.name,
-                section.elevation,
-                section.curved
-              )}
-            >
-              (edit)
-            </button>
+            {!ticketMode && (
+              <button
+                className={styles.editSection}
+                onClick={handleUpdateSection(
+                  section.name,
+                  section.elevation,
+                  section.curved
+                )}
+              >
+                (edit)
+              </button>
+            )}
           </div>
           {Object.values(rows).map(({ row, seats }) => (
             <div className={styles.row} key={`row-${row.name}`}>
-              <button
-                className={styles.editRow}
-                onClick={handleUpdateRow(section.name, row.name)}
-              >
-                {row.name}
-              </button>
+              {!ticketMode && (
+                <button
+                  className={styles.editRow}
+                  onClick={handleUpdateRow(section.name, row.name)}
+                >
+                  {row.name}
+                </button>
+              )}
               <div className={styles.seats}>
                 {(seats || []).length === 0 && (
                   <span className={styles.noSeats}>No seats</span>
@@ -173,31 +191,47 @@ const Seats = (): JSX.Element => {
                       {
                         [styles.blocked]: seat.broken,
                         [styles.aisle]: seat.aisle,
+                        [styles.filled]:
+                          ticketMode && filledSeats?.[seat._id]?.[0],
                       }
                     )}
                   >
-                    {seat.name}
+                    {ticketMode ? filledSeats?.[seat._id]?.[1] : seat.name}
                   </div>
                 ))}
               </div>
-              <button
-                className={styles.createSeat}
-                onClick={handleCreateSeat(section.name, row.name)}
-              >
-                +
-              </button>
+              {!ticketMode && (
+                <button
+                  className={styles.createSeat}
+                  onClick={handleCreateSeat(section.name, row.name)}
+                >
+                  +
+                </button>
+              )}
             </div>
           ))}
-          <button
-            className={styles.createRow}
-            onClick={handleCreateRow(section.name)}
-          >
-            + Create new row
-          </button>
+          {!ticketMode && (
+            <button
+              className={styles.createRow}
+              onClick={handleCreateRow(section.name)}
+            >
+              + Create new row
+            </button>
+          )}
         </div>
       ))}
-      <button className={styles.createSection} onClick={handleCreateSection}>
-        + Create new section
+      {!ticketMode && (
+        <button className={styles.createSection} onClick={handleCreateSection}>
+          + Create new section
+        </button>
+      )}
+      <button
+        onClick={toggleTicketMode}
+        className={classNames(styles.ticketMode, {
+          [styles.active]: ticketMode,
+        })}
+      >
+        Ticket mode
       </button>
       {!!creatingSeat && (
         <CreateSeat handleClose={handleCreatedSeat} {...creatingSeat} />
