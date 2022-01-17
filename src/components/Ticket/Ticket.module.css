@@ -1,0 +1,27 @@
+.title {
+  @apply border-t border-gray-300 font-bold mt-4 mb-2 pt-4 text-gray-800;
+}
+
+.ticket {
+  @apply flex pb-2 space-x-10 flex-wrap;
+}
+
+.noTickets {
+  @apply text-sm text-gray-700;
+}
+
+.seat {
+  @apply flex space-x-4;
+}
+
+.info {
+  @apply flex space-x-2;
+}
+
+.label {
+  @apply text-sm text-gray-700 font-bold;
+}
+
+.value {
+  @apply text-sm;
+}

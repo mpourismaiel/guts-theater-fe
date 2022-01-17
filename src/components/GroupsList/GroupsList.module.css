@@ -1,0 +1,35 @@
+.container {
+  @apply mt-4 flex flex-col space-y-4;
+}
+
+.group {
+  @apply py-2 px-4 rounded shadow shadow-gray-300;
+  @apply flex flex-col;
+}
+
+.info {
+  @apply flex space-x-10;
+}
+
+.field {
+  @apply flex space-x-2;
+}
+
+.label {
+  @apply font-bold text-sm text-gray-700;
+}
+
+.value {
+  @apply text-sm text-gray-900;
+}
+
+.createGroup {
+  @apply rounded shadow shadow-gray-300/50 bg-gray-200;
+  @apply transition-colors duration-200 ease-out;
+  @apply py-2;
+  @apply text-sm text-gray-700;
+}
+
+.createGroup:hover {
+  @apply bg-gray-300;
+}

@@ -1,0 +1,23 @@
+.container {
+  @apply flex flex-col space-y-4;
+}
+
+.error {
+  @apply mb-4 p-2 rounded border border-red-700 bg-red-200 text-red-900 text-sm;
+}
+
+.actions {
+  @apply flex justify-end space-x-4;
+}
+
+.button {
+  @apply rounded shadow text-sm font-semibold px-4 py-2 text-white;
+}
+
+.button.close {
+  @apply bg-gray-500 shadow-gray-500/50;
+}
+
+.button.submit {
+  @apply bg-blue-700 shadow-blue-700/50;
+}

@@ -3,9 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { fetcher } from "./utils/swr";
 import Header from "./components/Header";
+import Stage from "./pages/Stage";
+import Groups from "./pages/Groups";
 
 import "./global.css";
-import Home from "./pages/Stage";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
       >
         <Header />
         <Routes>
-          <Route path="/stage" element={<Home />} />
+          <Route path="/stage" element={<Stage />} />
+          <Route path="/groups" element={<Groups />} />
         </Routes>
       </SWRConfig>
     </Router>

@@ -9,6 +9,19 @@ export type SeatsApi = {
   section: SectionType;
 }[];
 
+export type GroupsApi = {
+  _id: string;
+  section: string;
+  aisle: boolean;
+  rank: string;
+  count: number;
+}[];
+
+export type TicketApi = {
+  groupId: string;
+  seats: string[];
+};
+
 export type SeatType = {
   aisle: boolean;
   broken: boolean;

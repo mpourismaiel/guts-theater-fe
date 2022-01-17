@@ -22,6 +22,13 @@ type SectionMutationData = {
   curved: boolean;
 };
 
+type GroupMutationData = {
+  aisle: boolean;
+  rank: string;
+  count: number;
+  section: string;
+};
+
 export const deleteSeat = ({
   section,
   row,
@@ -76,3 +83,14 @@ export const updateSection = ({
   curved,
 }: SectionMutationData): Promise<AxiosResponse> =>
   axios.put(`/section/${section}`, { name: section, elevation, curved });
+
+export const createGroup = ({
+  aisle,
+  count,
+  rank,
+  section,
+}: GroupMutationData): Promise<AxiosResponse> =>
+  axios.post(`/groups`, { aisle, count, rank, section });
+
+export const triggerSeating = (): Promise<AxiosResponse> =>
+  axios.post("/trigger-seating");

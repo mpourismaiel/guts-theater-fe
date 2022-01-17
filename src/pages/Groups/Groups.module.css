@@ -1,0 +1,22 @@
+.container {
+  @apply mt-4;
+}
+
+.title {
+  @apply font-bold text-lg;
+}
+
+.titleContainer {
+  @apply flex justify-between;
+}
+
+.triggerSeating {
+  @apply rounded shadow shadow-blue-300/50 bg-blue-500;
+  @apply transition-colors duration-200 ease-out;
+  @apply py-2 px-3;
+  @apply text-sm text-white;
+}
+
+.triggerSeating:hover {
+  @apply bg-blue-700;
+}
