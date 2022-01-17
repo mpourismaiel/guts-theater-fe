@@ -7,6 +7,7 @@ import Stage from "./pages/Stage";
 import Groups from "./pages/Groups";
 
 import "./global.css";
+import Docs from "./pages/Docs";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       >
         <Header />
         <Routes>
+          <Route path="/docs" element={<Docs />} />
           <Route path="/stage" element={<Stage />} />
           <Route path="/groups" element={<Groups />} />
         </Routes>
