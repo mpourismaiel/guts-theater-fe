@@ -7,6 +7,14 @@
   @apply flex flex-col;
 }
 
+.groupId {
+  @apply text-sm text-gray-600 mb-2;
+}
+
+.groupIdValue {
+  @apply font-semibold;
+}
+
 .info {
   @apply flex space-x-10;
 }

@@ -61,6 +61,12 @@ const GroupsList = (): JSX.Element => {
             [styles.expanded]: expandedGroups.includes(group._id),
           })}
         >
+          <h3 className={styles.groupId}>
+            Group token:{" "}
+            <span className={styles.groupIdValue}>
+              {group._id.replace(/^group:/, "")}
+            </span>
+          </h3>
           <div className={styles.info}>
             <div className={styles.field}>
               <span className={styles.label}>Count:</span>
