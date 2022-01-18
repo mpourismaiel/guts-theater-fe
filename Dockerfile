@@ -3,6 +3,7 @@ WORKDIR /src
 COPY package.json package-lock.json ./
 RUN npm i
 COPY . ./
+ENV REACT_APP_API_URL=http://localhost:4000
 RUN npm run build
 
 FROM nginx:alpine

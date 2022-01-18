@@ -3,7 +3,7 @@ import axiosGlobal, { AxiosResponse } from "axios";
 import type { SeatData } from "../@types";
 
 const axios = axiosGlobal.create({
-  baseURL: "http://localhost:4000",
+  baseURL: process.env.REACT_APP_API_URL,
 });
 
 type SeatMutationData = SeatData & {
