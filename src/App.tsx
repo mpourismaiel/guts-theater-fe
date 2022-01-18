@@ -8,6 +8,7 @@ import Groups from "./pages/Groups";
 
 import "./global.css";
 import Docs from "./pages/Docs";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       >
         <Header />
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/docs" element={<Docs />} />
           <Route path="/stage" element={<Stage />} />
           <Route path="/groups" element={<Groups />} />

@@ -7,7 +7,7 @@ const Header = (): JSX.Element => {
     <header className={styles.header}>
       <Layout>
         <div className={styles.wrapper}>
-          <h1 className={styles.logo}>Guts Test Project</h1>
+          <h1 className={styles.logo}>Guts Theater Project</h1>
           <ul className={styles.links}>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/docs">Docs</NavLink>

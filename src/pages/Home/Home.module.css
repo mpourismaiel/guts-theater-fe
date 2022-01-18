@@ -1,0 +1,26 @@
+.container {
+  @apply flex flex-col mt-6;
+}
+
+.card {
+  @apply rounded shadow-md bg-white p-4;
+}
+
+.card form {
+  @apply w-full flex justify-between;
+}
+
+.card input {
+  @apply min-w-[350px];
+}
+
+.button {
+  @apply rounded shadow shadow-blue-500/50 bg-blue-600;
+  @apply transition-colors duration-200 ease-out;
+  @apply py-2 px-4;
+  @apply text-sm text-white;
+}
+
+.button:hover {
+  @apply bg-blue-800;
+}
